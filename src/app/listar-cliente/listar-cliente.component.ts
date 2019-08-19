@@ -26,7 +26,7 @@ export class ListarClienteComponent implements OnInit {
     this.clienteService.excluirCliente(id)
       .subscribe(
         data => {
-          console.log(data);
+          console.log('Excluído');
           this.reloadData();
         },
         error => console.log(error));

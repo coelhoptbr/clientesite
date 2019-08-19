@@ -1,20 +1,30 @@
 <h3>Incluir Cliente</h3>
+<hr>
+<div class="form-group" style="color: gray">
+        <label for="name">* Campos obrigatórios</label>
+    </div>
+<div *ngIf="dadosinvalidos" style="color: red">
+    {{mensagemErro}}
+    <br>
+    <br>
+</div>
+
 <div [hidden]="submitted" style="width: 400px;">
-    <form (ngSubmit)="onSubmit()">
+    <form #form='ngForm' (ngSubmit)="onSubmit(form.valid)">
         <div class="form-group">
-            <label for="name">Nome</label>
+            <label for="name">Nome*</label>
             <input type="text" class="form-control" id="nome" required 
-            [(ngModel)]="cliente.nome" name="nome">
+            [(ngModel)]="cliente.nome" name="nome" minlength="10" maxlength="60">
         </div>
 
         <div class="form-group">
-            <label for="name">Limite</label>
-            <input type="text" class="form-control" id="limite" required 
-            [(ngModel)]="cliente.limite" name="limite">
+            <label for="name">Limite*</label>
+            <input type="number" class="form-control" id="limite" required 
+            [(ngModel)]="cliente.limite" name="limite" min="100">
         </div>
 
         <div class="form-group">
-            <label for="name">Risco</label>
+            <label for="name">Risco*</label>
             
             <select class="form-control" id="risco" required
             [(ngModel)]="cliente.risco" name="risco">
@@ -23,6 +33,8 @@
                 <option [ngValue]="'C'">C</option>
             </select>
         </div>
+
+        
 
         <button type="submit" class="btn btn-success">Salvar</button>
     </form>
