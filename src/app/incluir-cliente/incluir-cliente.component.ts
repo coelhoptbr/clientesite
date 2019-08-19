@@ -32,7 +32,7 @@ export class IncluirClienteComponent implements OnInit {
     this.clienteService.incluirCliente(this.cliente)
       .subscribe(data => console.log(data), error => console.log(error));
     this.cliente = new InCliente();
-    this.router.navigate(['/']);
+    //this.router.navigate(['/']);
   }
 
   onSubmit(formvalido) {
