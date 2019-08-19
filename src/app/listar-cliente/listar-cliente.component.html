@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h1>Clientes</h1>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Limite</th>
+                    <th>Taxa</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cliente of clientes | async">
+                    <td>{{cliente.nome}}</td>
+                    <td>{{cliente.limite}}</td>
+                    <td>{{cliente.taxa}}</td>
+                    <td><button (click)="excluirCliente(cliente.id)">Excluir</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
